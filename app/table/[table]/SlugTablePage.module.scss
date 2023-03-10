@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 40px auto 0;
+  width: 80%;
+  border: solid 1px #000;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.taskList {
+  max-height: 400px;
+  overflow-y: scroll;
+  li {
+    width: 100%;
+    display: flex;
+    div {
+      padding: 5px;
+      width: 50%;
+      :first-child {
+        display: flex;
+        margin-bottom: 5px;
+        flex: 1;
+      }
+      :nth-child(2) {
+        display: flex;
+        flex: 1;
+      }
+    }
+  }
+  :hover {
+    background-color: darkgray;
+  }
+}
+.right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.contextTask {
+  padding: 10px;
+  border-top: solid 1px #000000;
+}
+.contextHeader {
+  display: flex;
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+}
