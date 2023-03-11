@@ -1,18 +1,19 @@
 'use client'
 import React, { useState } from 'react'
 import classes from './SlugTablePage.module.scss'
+import { ITask } from '@/app/table/[table]/ITask'
 
-const DUMMY_DATA = [
-  // {
-  //   id: 1,
-  //   title: 'Task 1',
-  //   author: 'John Doe',
-  //   dataDue: '2021-01-01',
-  //   status: 'In Progress',
-  //   priority: 'High',
-  //   env: 'Production',
-  //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  // },
+const DUMMY_DATA: ITask[] = [
+  {
+    id: 1,
+    title: 'Task 1',
+    author: 'John Doe',
+    dataDue: '2021-01-01',
+    status: 'In Progress',
+    priority: 'High',
+    env: 'Production',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  },
 ]
 
 export default function SlugTablePage() {
@@ -20,29 +21,29 @@ export default function SlugTablePage() {
   const selectTask = (id: number) => {
     const task = DUMMY_DATA.find((task) => task.id === id)
     if (task) {
-      // @ts-ignore
       setSelectedTask(task)
     } else {
       setSelectedTask('')
     }
   }
-  console.log(selectedTask)
-  const consoleIt = () => {}
+  const { title, author, dataDue, description, env, status, priority } =
+    selectedTask
+
   return (
     <>
       {DUMMY_DATA.length !== 0 ? (
         <div className={classes.container}>
           <div>
             <ul className={classes.taskList}>
-              {DUMMY_DATA.map((task) => (
-                <li key={task.id} onClick={() => selectTask(task.id)}>
+              {DUMMY_DATA.map(({ id, title, author, status, priority }) => (
+                <li key={id} onClick={() => selectTask(id)}>
                   <div>
-                    <span>{task.title}</span>
-                    <span>{task.author}</span>
+                    <span>{title}</span>
+                    <span>{author}</span>
                   </div>
                   <div>
-                    <span className={classes.right}>{task.status}</span>
-                    <span className={classes.right}>{task.priority}</span>
+                    <span className={classes.right}>{status}</span>
+                    <span className={classes.right}>{priority}</span>
                   </div>
                 </li>
               ))}
@@ -52,17 +53,17 @@ export default function SlugTablePage() {
             <div className={classes.contextTask}>
               <div className={classes.contextHeader}>
                 <div>
-                  <span>{selectedTask.title}</span>
-                  <span>{selectedTask.author}</span>
-                  <span>{selectedTask.dataDue}</span>
+                  <span>{title}</span>
+                  <span>{author}</span>
+                  <span>{dataDue}</span>
                 </div>
                 <div>
-                  <span className={classes.right}>{selectedTask.priority}</span>
-                  <span className={classes.right}>{selectedTask.env}</span>
-                  <span className={classes.right}>{selectedTask.status}</span>
+                  <span className={classes.right}>{priority}</span>
+                  <span className={classes.right}>{env}</span>
+                  <span className={classes.right}>{status}</span>
                 </div>
               </div>
-              <span>{selectedTask.description}</span>
+              <span>{description}</span>
             </div>
           )}
         </div>

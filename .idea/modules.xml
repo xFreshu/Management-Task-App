@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Kanban-Backend/.idea/Kanban-Backend.iml" filepath="$PROJECT_DIR$/../Kanban-Backend/.idea/Kanban-Backend.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/managment-task-app.iml" filepath="$PROJECT_DIR$/.idea/managment-task-app.iml" />
     </modules>
   </component>
